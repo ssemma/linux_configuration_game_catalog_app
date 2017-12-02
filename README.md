@@ -137,6 +137,9 @@ In the file, check the setup is the same in the following
 ```
 Third party source:
 [digitalocean](https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps)
+
+
+
 5.Create a new database user named catalog that has limited permission to your catalog application database
 ```
     sudo -i -u postgres
