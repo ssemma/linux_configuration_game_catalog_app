@@ -50,7 +50,8 @@ Make sure on lightsail website, the firewall allows port 2200, port 80 and port 
 ```
     sudo adduser grader
 ```
-create a password and fill in the information for the grader
+Create a password and fill in the information for the grader
+
 2. Give grader the permission to sudo
 ```
     sudo touch /etc/sudoers.d/grader
@@ -91,9 +92,11 @@ Now, you can login as
 ```
     sudo vim /etc/ssh/sshd_config
 ```
-In the file, check there is no password authentication allow and 
-change **PermitRootlogin** to no.
-and then restart ssh service
+In the file, check there is no password authentication allow 
+```
+    PasswordAuthentication no
+```
+and change **PermitRootlogin** to no. Then restart ssh service
 ```
     sudo service ssh restart
 ```
@@ -102,9 +105,14 @@ and then restart ssh service
 ```
     sudo dpkg-reconfigure tzdata
 ```
-and select UTC
+and select UTC.
+
+
 Third party source: 
 [askubuntu](https://askubuntu.com/questions/138423/how-do-i-change-my-timezone-to-utc-gmt)
+
+
+
 2. Install and configure Apache to serve a python mod_wsgi application
 ```
     sudo apt-get install apache2
@@ -154,6 +162,9 @@ It should show up the following:
 Third party source:
 [digital ocean](https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps)
 [digital ocean](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-16-04)
+
+
+
 6. Install git
 ```
     sudo apt-get install git
@@ -232,13 +243,19 @@ to
 Go to google developer account,
  
 edit the game app oauth 2.0 client_id,
-add http://18.217.95.198
+add http://18.217.95.198 and 
 http://ec2-18-217-95-198.us-east-2.compute.amazonaws.com
 to authorized javascript origins
-add http://ec2-18-217-95-198.us-east-2.compute.amazonaws.com/login
+add 
+```
+http://ec2-18-217-95-198.us-east-2.compute.amazonaws.com/login
 http://ec2-18-217-95-198.us-east-2.compute.amazonaws.com/gconnect
 http://ec2-18-217-95-198.us-east-2.compute.amazonaws.com/gconnect
+```
 to the authorized redirect URIs.
+
+
+
 5. check the app is running
 ```
     sudo python /var/www/game/game/__init__.python
@@ -304,11 +321,11 @@ Apply changes to Apache2
     sudo apachectl restart
 ```
 Third party source:
-[Reverse DNS lookup](https://remote.12dt.com/lookup.php)
-[Udacity forum for converting database](https://discussions.udacity.com/t/converting-from-sqlite-to-postgres/246787)
-[Udacity forum for oath error](https://discussions.udacity.com/t/oath-error-origin-mismatch/221485/3)
-[Deploy app](https://devops.profitbricks.com/tutorials/deploy-a-flask-application-on-ubuntu-1404/)
-[digital ocean](https://www.digitalocean.com/community/questions/block-default-apache-page-on-ubuntu-14-04)
+[Reverse DNS lookup](https://remote.12dt.com/lookup.php),
+[Udacity forum for converting database](https://discussions.udacity.com/t/converting-from-sqlite-to-postgres/246787),
+[Udacity forum for oath error](https://discussions.udacity.com/t/oath-error-origin-mismatch/221485/3),
+[Deploy app](https://devops.profitbricks.com/tutorials/deploy-a-flask-application-on-ubuntu-1404/),
+[digital ocean](https://www.digitalocean.com/community/questions/block-default-apache-page-on-ubuntu-14-04),
 [udacity linux server configuration course](https://classroom.udacity.com/nanodegrees/nd004/parts/ab002e9a-b26c-43a4-8460-dc4c4b11c379)
 
 
